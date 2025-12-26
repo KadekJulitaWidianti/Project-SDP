@@ -31,12 +31,12 @@ if (!exists("data_bersih")) {
 # var_dependen <- "harga_rumah"
 # var_independen <- "luas_bangunan"
 
-var_dependen <- "Biaya_Akuisisi_Pelanggan_Juta_IDR"   # Seringkali sama dengan var_y dari skrip korelasi
-var_independen <- "Pendapatan_Tahunan_Miliar_IDR" # Seringkali sama dengan var_x dari skrip korelasi
+var_dependen <- "Pendapatan_Tahunan_Miliar_IDR"   # Seringkali sama dengan var_y dari skrip korelasi
+var_independen <- "Nilai_Pelanggan_Juta_IDR" # Seringkali sama dengan var_x dari skrip korelasi
 
 # Pastikan kolom yang dipilih ada di dalam data
-if(!"Biaya_Akuisisi_Pelanggan_Juta_IDR" %in% names(data_bersih) || !"Pendapatan_Tahunan_Miliar_IDR" %in% names(data_bersih)) {
-  stop(paste("Satu atau kedua kolom ('Biaya_Akuisisi_Pelanggan_Juta_IDR', '", "Pendapatan_Tahunan_Miliar_IDR", "') tidak ditemukan. Periksa kembali nama kolom pada file 05_analisis_regresi.R"))
+if(!"Pendapatan_Tahunan_Miliar_IDR" %in% names(data_bersih) || !"Nilai_Pelanggan_Juta_IDR" %in% names(data_bersih)) {
+  stop(paste("Satu atau kedua kolom ('Pendapatan_Tahunan_Miliar_IDR', '", "Nilai_Pelanggan_Juta_IDR", "') tidak ditemukan. Periksa kembali nama kolom pada file 05_analisis_regresi.R"))
 }
 
 # -----------------------------------------------------------------
@@ -45,7 +45,7 @@ if(!"Biaya_Akuisisi_Pelanggan_Juta_IDR" %in% names(data_bersih) || !"Pendapatan_
 # Fungsi lm() (linear model) digunakan untuk membuat model regresi.
 # Formula `Y ~ X` dibaca "Y diprediksi oleh X".
 
-model_regresi <- lm(as.formula(paste("Biaya_Akuisisi_Pelanggan_Juta_IDR", "~", "Pendapatan_Tahunan_Miliar_IDR")), data = data_bersih)
+model_regresi <- lm(as.formula(paste("Pendapatan_Tahunan_Miliar_IDR", "~", "Nilai_Pelanggan_Juta_IDR")), data = data_bersih)
 
 
 # -----------------------------------------------------------------
@@ -67,9 +67,9 @@ print("--- Interpretasi Penting dari Model ---")
 intercept_val <- coef(model_regresi)[1]
 slope_val <- coef(model_regresi)[2]
 
-print(paste("1. Persamaan Model: ", "Biaya_Akuisisi_Pelanggan_Juta_IDR", " = ", round(intercept_val, 2), " + ", round(slope_val, 2), " * ", "Pendapatan_Tahunan_Miliar_IDR"))
-print(paste("   - Intercept (b0) =", round(intercept_val, 2), "-> Nilai prediksi", "Biaya_Akuisisi_Pelanggan_Juta_IDR", "ketika", "Pendapatan_Tahunan_Miliar_IDR", "adalah 0."))
-print(paste("   - Slope (b1) =", round(slope_val, 2), "-> Setiap kenaikan 1 unit pada", "Pendapatan_Tahunan_Miliar_IDR", ", diprediksi akan mengubah", "Biaya_Akuisisi_Pelanggan_Juta_IDR", "sebesar", round(slope_val, 2), "unit."))
+print(paste("1. Persamaan Model: ", "Pendapatan_Tahunan_Miliar_IDR", " = ", round(intercept_val, 2), " + ", round(slope_val, 2), " * ", "Nilai_Pelanggan_Juta_IDR"))
+print(paste("   - Intercept (b0) =", round(intercept_val, 2), "-> Nilai prediksi", "Pendapatan_Tahunan_Miliar_IDR", "ketika", "Nilai_Pelanggan_Juta_IDR", "adalah 0."))
+print(paste("   - Slope (b1) =", round(slope_val, 2), "-> Setiap kenaikan 1 unit pada", "Nilai_Pelanggan_Juta_IDR", ", diprediksi akan mengubah", "Pendapatan_Tahunan_Miliar_IDR", "sebesar", round(slope_val, 2), "unit."))
 
 # B. R-squared (Koefisien Determinasi)
 # - Adjusted R-squared: Persentase variasi dalam variabel dependen (Y) yang dapat
@@ -78,7 +78,7 @@ print(paste("   - Slope (b1) =", round(slope_val, 2), "-> Setiap kenaikan 1 unit
 
 adj_r_squared <- summary_model$adj.r.squared
 print(paste("2. Adjusted R-squared =", round(adj_r_squared, 3), "atau", round(adj_r_squared * 100, 1), "%" ))
-print(paste("   - Artinya,", round(adj_r_squared * 100, 1), "% variasi pada", "Biaya_Akuisisi_Pelanggan_Juta_IDR", "dapat dijelaskan oleh", "Pendapatan_Tahunan_Miliar_IDR", "melalui model ini."))
+print(paste("   - Artinya,", round(adj_r_squared * 100, 1), "% variasi pada", "Pendapatan_Tahunan_Miliar_IDR", "dapat dijelaskan oleh", "Nilai_Pelanggan_Juta_IDR", "melalui model ini."))
 
 
 # -----------------------------------------------------------------
@@ -87,17 +87,17 @@ print(paste("   - Artinya,", round(adj_r_squared * 100, 1), "% variasi pada", "B
 # Kita bisa menggunakan scatter plot dari skrip sebelumnya dan menambahkan garis regresi dari model ini.
 # Garis ini adalah representasi visual dari persamaan model kita.
 
-plot_regresi <- ggplot(data_bersih, aes_string(x = "Pendapatan_Tahunan_Miliar_IDR", y = "Biaya_Akuisisi_Pelanggan_Juta_IDR")) +
+plot_regresi <- ggplot(data_bersih, aes_string(x = "Nilai_Pelanggan_Juta_IDR", y = "Pendapatan_Tahunan_Miliar_IDR")) +
   geom_point(alpha = 0.6, color = "blue") +
   geom_smooth(method = "lm", se = TRUE, color = "red") + # `se = TRUE` menampilkan confidence interval
   labs(
     title = "Garis Regresi Linear",
     subtitle = paste0(
-      "Model: ", "Biaya_Akuisisi_Pelanggan_Juta_IDR", " ~ ", "Pendapatan_Tahunan_Miliar_IDR", "\n",
+      "Model: ", "Pendapatan_Tahunan_Miliar_IDR", " ~ ", "Nilai_Pelanggan_Juta_IDR", "\n",
       "Adj. R-squared = ", round(adj_r_squared, 3)
     ),
-    x = "Pendapatan_Tahunan_Miliar_IDR",
-    y = "Biaya_Akuisisi_Pelanggan_Juta_IDR"
+    x = "Nilai_Pelanggan_Juta_IDR",
+    y = "Pendapatan_Tahunan_Miliar_IDR"
   ) +
   theme_minimal()
 
@@ -105,7 +105,7 @@ print(plot_regresi)
 
 # Menyimpan plot regresi ke folder 'results'
 ggsave(
-  filename = paste0("C:/Users/kadek/OneDrive/Documents/Semester 1/SDP/Tugas_Analisis_Statistik/results/plot_regresi_", "Pendapatan_Tahunan_Miliar_IDR", "_vs_", "Biaya_Akuisisi_Pelanggan_Juta_IDR", ".png"),
+  filename = paste0("C:/Users/kadek/OneDrive/Documents/Semester 1/SDP/Tugas_Analisis_Statistik/results/plot_regresi_", "Nilai_Pelanggan_Juta_IDR", "_vs_", "Pendapatan_Tahunan_Miliar_IDR", ".png"),
   plot = plot_regresi,
   width = 8,
   height = 6

@@ -29,26 +29,26 @@ if (!exists("data_bersih")) {
 # var_x <- "luas_bangunan"
 # var_y <- "harga_rumah"
 
-var_x <- "Pendapatan_Tahunan_Miliar_IDR" 
-var_y <- "Biaya_Akuisisi_Pelanggan_Juta_IDR"
+var_x <-  "Nilai_Pelanggan_Juta_IDR"
+var_y <- "Pendapatan_Tahunan_Miliar_IDR"
 
 # Pastikan kolom yang dipilih ada di dalam data
-if(!"Pendapatan_Tahunan_Miliar_IDR"  %in% names(data_bersih) || !"Biaya_Akuisisi_Pelanggan_Juta_IDR" %in% names(data_bersih)) {
-  stop(paste("Satu atau kedua kolom ('Pendapatan_Tahunan_Miliar_IDR', 'Biaya_Akuisisi_Pelanggan_Juta_IDR') tidak ditemukan. Periksa kembali nama kolom pada file 04_analisis_korelasi.R"))
+if(!"Nilai_Pelanggan_Juta_IDR" %in% names(data_bersih) || !"Pendapatan_Tahunan_Miliar_IDR"  %in% names(data_bersih)) {
+  stop(paste("Satu atau kedua kolom ('Nilai_Pelanggan_Juta_IDR', 'Pendapatan_Tahunan_Miliar_IDR') tidak ditemukan. Periksa kembali nama kolom pada file 04_analisis_korelasi.R"))
 }
 
 # -----------------------------------------------------------------
 # Langkah 1: Visualisasi Hubungan dengan Scatter Plot
 # -----------------------------------------------------------------
 # Scatter plot adalah cara terbaik untuk melihat pola hubungan antara dua variabel.
-scatter_plot <- ggplot(data_bersih, aes_string(x = "Pendapatan_Tahunan_Miliar_IDR" , y = "Biaya_Akuisisi_Pelanggan_Juta_IDR")) +
+scatter_plot <- ggplot(data_bersih, aes_string(x = "Nilai_Pelanggan_Juta_IDR", y = "Pendapatan_Tahunan_Miliar_IDR" )) +
   geom_point(alpha = 0.6, color = "blue") +
   geom_smooth(method = "lm", se = FALSE, color = "red") + # Menambah garis tren linear
   labs(
-    title = paste("Scatter Plot antara", "Pendapatan_Tahunan_Miliar_IDR" , "dan", "Biaya_Akuisisi_Pelanggan_Juta_IDR"),
+    title = paste("Scatter Plot antara", "Nilai_Pelanggan_Juta_IDR" , "dan", "Pendapatan_Tahunan_Miliar_IDR" ),
     subtitle = "Garis merah menunjukkan tren linear",
-    x = "Pendapatan_Tahunan_Miliar_IDR" ,
-    y = "Biaya_Akuisisi_Pelanggan_Juta_IDR"
+    x = "Nilai_Pelanggan_Juta_IDR" ,
+    y = "Pendapatan_Tahunan_Miliar_IDR" 
   ) +
   theme_minimal()
 
@@ -56,7 +56,7 @@ print(scatter_plot)
 
 # Menyimpan scatter plot ke folder 'results'
 ggsave(
-  filename = paste0("C:/Users/kadek/OneDrive/Documents/Semester 1/SDP/Tugas_Analisis_Statistik/results/scatterplot_", "Pendapatan_Tahunan_Miliar_IDR", "_vs_", "Biaya_Akuisisi_Pelanggan_Juta_IDR", ".png"),
+  filename = paste0("C:/Users/kadek/OneDrive/Documents/Semester 1/SDP/Tugas_Analisis_Statistik/results/scatterplot_", "Pendapatan_Tahunan_Miliar_IDR", "_vs_", "Pendapatan_Tahunan_Miliar_IDR" , ".png"),
   plot = scatter_plot,
   width = 8,
   height = 6
@@ -80,9 +80,9 @@ print(paste("Scatter plot disimpan di folder 'results'."))
 
 # Pilih metode yang sesuai. 'pearson' adalah default dan umum digunakan.
 # Gunakan 'spearman' jika data Anda tidak terdistribusi normal (berdasarkan skrip 03).
-correlation_test <- cor.test(data_bersih[["Pendapatan_Tahunan_Miliar_IDR" ]], data_bersih[["Biaya_Akuisisi_Pelanggan_Juta_IDR"]], method = "pearson")
+correlation_test <- cor.test(data_bersih[["Nilai_Pelanggan_Juta_IDR"]], data_bersih[["Pendapatan_Tahunan_Miliar_IDR" ]], method = "spearman")
 
-print(paste("--- Hasil Uji Korelasi antara", "Pendapatan_Tahunan_Miliar_IDR" , "dan", "Biaya_Akuisisi_Pelanggan_Juta_IDR", "---"))
+print(paste("--- Hasil Uji Korelasi antara", "Nilai_Pelanggan_Juta_IDR" , "dan", "Pendapatan_Tahunan_Miliar_IDR" , "---"))
 print(correlation_test)
 
 # Interpretasi otomatis
@@ -112,7 +112,7 @@ if (cor_value > 0) {
   direction <- ""
 }
 
-print(paste("Ini menunjukkan adanya korelasi", direction, strength, "antara","Pendapatan_Tahunan_Miliar_IDR"  , "dan","Biaya_Akuisisi_Pelanggan_Juta_IDR" , "."))
+print(paste("Ini menunjukkan adanya korelasi", direction, strength, "antara", "Nilai_Pelanggan_Juta_IDR" , "dan", "Pendapatan_Tahunan_Miliar_IDR", "."))
 
 # Interpretasi signifikansi
 if (p_value <= 0.05) {

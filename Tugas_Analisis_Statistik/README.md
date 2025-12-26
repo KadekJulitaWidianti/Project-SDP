@@ -2,15 +2,30 @@
 
 ## 1. Informasi Penyusun
 
-- **Nama:** `[NAMA LENGKAP MAHASISWA]`
-- **NIM:** `[NOMOR INDUK MAHASISWA]`
-- **Program Studi:** `[PROGRAM STUDI]`
+- **Nama:** `[KADEK JULITA WIDIANTI]`
+- **NIM:** `[2515091010]`
+- **Program Studi:** `[S1 SISTEM INFORMASI]`
 - **Mata Kuliah:** Statistika dan Probabilitas
 
 ---
 
 ## 2. Deskripsi Proyek
-> Dataset yang digunakan dalam proyek ini adalah data_startup_saas.csv yang berisi informasi komprehensif mengenai berbagai perusahaan rintisan (startup) berbasis Software as a Service (SaaS). Dataset ini mencakup beberapa atribut utama, yaitu Nama_Startup yang merepresentasikan identitas perusahaan, Kategori_Layanan yang menunjukkan jenis layanan digital yang ditawarkan, Pendapatan_Tahunan_Miliar_IDR sebagai indikator kinerja finansial utama perusahaan, Biaya_Akuisisi_Pelanggan_Juta_IDR yang menggambarkan besarnya biaya yang dikeluarkan untuk memperoleh pelanggan baru, Nilai_Pelanggan_Juta_IDR yang mencerminkan nilai ekonomi pelanggan bagi perusahaan (customer value), serta Tingkat_Churn_Persen yang menunjukkan persentase pelanggan yang berhenti menggunakan layanan dalam periode tertentu. Variabel kunci dalam analisis ini adalah Pendapatan_Tahunan_Miliar_IDR dan Nilai_Pelanggan_Juta_IDR, karena keduanya dianggap paling merepresentasikan hubungan antara nilai pelanggan dan performa pendapatan perusahaan. Tujuan utama proyek ini adalah untuk memahami karakteristik data melalui analisis statistik deskriptif, menguji hubungan antara Nilai_Pelanggan_Juta_IDR dan Pendapatan_Tahunan_Miliar_IDR menggunakan analisis korelasi guna mengetahui arah dan kekuatan hubungannya, serta membangun model regresi linear untuk memprediksi Pendapatan_Tahunan_Miliar_IDR dengan Nilai_Pelanggan_Juta_IDR sebagai variabel prediktor. Melalui pendekatan ini, diharapkan dapat diperoleh pemahaman yang lebih mendalam mengenai sejauh mana nilai pelanggan berkontribusi terhadap pendapatan tahunan startup SaaS, sekaligus memberikan dasar analitis bagi pengambilan keputusan strategis berbasis data.
+>Dataset yang digunakan dalam proyek ini adalah data_startup_saas.csv yang berisi informasi komprehensif mengenai 
+berbagai perusahaan rintisan (startup) berbasis Software as a Service (SaaS). Dataset ini mencakup beberapa 
+atribut utama, yaitu Nama_Startup yang merepresentasikan identitas perusahaan, Kategori_Layanan yang menunjukkan 
+jenis layanan digital yang ditawarkan, Pendapatan_Tahunan_Miliar_IDR sebagai indikator kinerja finansial utama 
+perusahaan, Biaya_Akuisisi_Pelanggan_Juta_IDR yang menggambarkan besarnya biaya yang dikeluarkan untuk memperoleh 
+pelanggan baru, Nilai_Pelanggan_Juta_IDR yang mencerminkan nilai ekonomi pelanggan bagi perusahaan (customer value), 
+serta Tingkat_Churn_Persen yang menunjukkan persentase pelanggan yang berhenti menggunakan layanan dalam periode 
+tertentu. Variabel kunci dalam analisis ini adalah Pendapatan_Tahunan_Miliar_IDR dan Nilai_Pelanggan_Juta_IDR, 
+karena keduanya dianggap paling merepresentasikan hubungan antara nilai pelanggan dan performa pendapatan 
+perusahaan. Tujuan utama proyek ini adalah untuk memahami karakteristik data melalui analisis statistik 
+deskriptif, menguji hubungan antara Nilai_Pelanggan_Juta_IDR dan Pendapatan_Tahunan_Miliar_IDR menggunakan 
+analisis korelasi guna mengetahui arah dan kekuatan hubungannya, serta membangun model regresi linear untuk 
+memprediksi Pendapatan_Tahunan_Miliar_IDR dengan Nilai_Pelanggan_Juta_IDR sebagai variabel prediktor. Melalui 
+pendekatan ini, diharapkan dapat diperoleh pemahaman yang lebih mendalam mengenai sejauh mana nilai pelanggan 
+berkontribusi terhadap pendapatan tahunan startup SaaS, sekaligus memberikan dasar analitis bagi pengambilan 
+strategis berbasis data.
 
 ---
 
@@ -42,11 +57,8 @@ Di bagian ini, mahasiswa diharapkan untuk menyajikan dan menginterpretasikan has
 
 ### 5.1. Statistik Deskriptif
 - **Ukuran Pemusatan (Mean, Median, Modus):**
-  - *Ringkasan:Analisis ukuran pemusatan data terhadap variabel pendapatan tahunan 650 startup SaaS menunjukkan nilai mean sebesar 31,88 miliar IDR, median 31,3 miliar IDR, dan modus 1,87 miliar IDR. *
-  - *Interpretasi: Dari hasil analisis, terlihat bahwa rata-rata pendapatan startup SaaS adalah 31,88 miliar IDR per tahun, sementara nilai tengahnya adalah 31,30 miliar IDR. Kedua angka ini cukup berdekatan, yang menunjukkan bahwa secara umum distribusi pendapatan tidak terlalu miring atau tidak condong ekstrem ke salah satu sisi. Namun, terdapat keunikan yang signifikan: nilai yang paling sering muncul (modus) jauh lebih rendah, yaitu hanya 1,87 miliar IDR. halini mengungkapkan dua realitas yang terjadi bersamaan:*
- 
-
-
+  - *Tabel atau ringkasan...*
+  - *Interpretasi:* Jelaskan apa arti dari nilai-nilai tersebut terkait dengan data Anda.
 - **Ukuran Sebaran (Standar Deviasi, Range, Kuartil):**
   - *Tabel atau ringkasan...*
   - *Interpretasi:* Jelaskan seberapa menyebar data Anda berdasarkan nilai-nilai ini.
