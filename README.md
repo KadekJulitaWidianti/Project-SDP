@@ -12,10 +12,6 @@
 ## 2. Deskripsi Proyek
 
 > Dataset yang digunakan dalam proyek ini adalah data_startup_saas.csv yang berisi informasi komprehensif mengenai berbagai perusahaan rintisan (startup) berbasis Software as a Service (SaaS). Dataset ini mencakup beberapa informasi penting, yaitu Nama_Startup yang merepresentasikan identitas perusahaan, Kategori_Layanan yang menunjukkan jenis layanan digital yang ditawarkan, Pendapatan_Tahunan_Miliar_IDR sebagai ukuran pendapatan perusahaan dalam satu tahun, Biaya_Akuisisi_Pelanggan_Juta_IDR yang menggambarkan besarnya biaya yang dikeluarkan untuk memperoleh pelanggan baru, Nilai_Pelanggan_Juta_IDR yang mewakili nilai ekonomi pelanggan bagi perusahaan (customer value), serta Tingkat_Churn_Persen yang menunjukkan persentase pelanggan yang berhenti menggunakan layanan. Variabel kunci dalam analisis ini adalah Pendapatan_Tahunan_Miliar_IDR dan Nilai_Pelanggan_Juta_IDR, arena analisis difokuskan pada hubungan utama yang ingin dikaji, yaitu bagaimana nilai yang dihasilkan dari pelanggan berkaitan dengan pendapatan yang diperoleh perusahaan. Tujuan utama proyek ini adalah untuk memahami karakteristik data melalui analisis statistik deskriptif, menguji hubungan antara Nilai_Pelanggan_Juta_IDR dan Pendapatan_Tahunan_Miliar_IDR menggunakan analisis korelasi guna mengetahui arah dan kekuatan antara 2 variabel ini, serta membangun model regresi linier untuk memprediksi Pendapatan_Tahunan_Miliar_IDR dengan Nilai_Pelanggan_Juta_IDR sebagai variabel prediktor. Melalui pendekatan ini, diharapkan dapat memperoleh pemahaman yang lebih mendalam mengenai sejauh mana nilai pelanggan berkontribusi terhadap pendapatan tahunan startup SaaS, sekaligus memberikan analisis dasar untuk pengambilan strategi atau keputusan berbasis data.
-<details>
-	<summary>Klik untuk melihat details</summary>
-		
-</details>
 	
 ---
 
@@ -63,12 +59,14 @@ Di bagian ini, mahasiswa diharapkan untuk menyajikan dan menginterpretasikan has
 
     
 - **Visualisasi (Histogram/Boxplot):**
-  - **
-  - *Interpretasi:* Jelaskan wawasan apa yang Anda dapatkan dari bentuk distribusi data.
+  - *Histogram:*
+  - *Boxplot:*
+  - *Interpretasi :* Berdasarkan boxplot dan histogram, pendapatan tahunan startup SaaS menunjukkan penyebaran yang cukup lebar. Boxplot memperlihatkan bahwa setengah dari data berada pada rentang yang luas, menandakan adanya perbedaan pendapatan yang cukup besar antar startup. Rentang nilai yang panjang ke arah pendapatan tinggi menunjukkan bahwa sebagian startup memiliki pendapatan jauh lebih besar dibandingkan mayoritas lainnya.
+Histogram mendukung temuan tersebut dengan menunjukkan sebaran pendapatan yang tidak terpusat pada satu nilai tertentu. Data tersebar dari pendapatan rendah hingga tinggi, dengan nilai rata-rata dan median yang hampir sama, sehingga distribusi pendapatan cenderung relatif seimbang. Secara keseluruhan, grafik ini menunjukkan bahwa pendapatan startup SaaS tidak merata, di mana sebagian besar berada pada level rendah hingga menengah, sementara hanya sebagian kecil yang telah mencapai pendapatan tinggi.
 
 ### 5.2. Uji Normalitas
 - **Hasil Uji Shapiro-Wilk:**
-  - *Nilai p-value...*
+  - *Nilai p-value sebesar 1,497 × 10⁻¹⁴.*
   - *Interpretasi:* Apakah data Anda terdistribusi normal berdasarkan hasil uji? Apa implikasinya?
 - **Plot Q-Q:**
   - *Sematkan gambar plot dari folder /results...*
