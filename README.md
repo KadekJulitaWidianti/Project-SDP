@@ -43,8 +43,8 @@ Di bagian ini, mahasiswa diharapkan untuk menyajikan dan menginterpretasikan has
 
 ### 5.1. Statistik Deskriptif
 - **Ukuran Pemusatan (Mean, Median, Modus):**
-  - *Hasil:* Analisis statistik deskriptif untuk ukuran pemusatan data terhadap variabel Pendapatan_Tahunan_Miliar_IDR dari 650 startup SaaS menunjukkan nilai mean sebesar 31,88 miliar IDR, median 31,30 miliar IDR, dan modus 1,87 miliar IDR.
-  - *Interpretasi:*
+  > *Hasil:* Analisis statistik deskriptif untuk ukuran pemusatan data terhadap variabel Pendapatan_Tahunan_Miliar_IDR dari 650 startup SaaS menunjukkan nilai mean sebesar 31,88 miliar IDR, median 31,30 miliar IDR, dan modus 1,87 miliar IDR.
+  > *Interpretasi:*
     Berdasarkan hasil analisis statistik deskriptif terhadap data startup SaaS, diperoleh nilai rata-rata (mean) pendapatan tahunan sebesar 31,88 miliar IDR, sedangkan nilai median sebesar 31,30 miliar IDR. Kedua nilai ini relatif berdekatan, yang menunjukkan bahwa secara umum distribusi pendapatan tidak terlalu miring dan tidak didominasi oleh satu sisi ekstrem secara berlebihan. Nilai mean dalam hal ini memberikan gambaran umum mengenai skala pendapatan industri secara keseluruhan.
 	Namun demikian, analisis menjadi lebih bermakna ketika memperhatikan nilai modus pendapatan tahunan, yaitu 1,87 miliar IDR. Nilai ini jauh lebih rendah dibandingkan mean dan median, yang menunjukkan bahwa pendapatan yang paling sering muncul dalam data berada pada tingkat yang relatif kecil. Temuan ini mengungkap bahwa mayoritas startup SaaS masih memiliki pendapatan rendah, meskipun terdapat sejumlah startup yang telah mencapai pendapatan menengah hingga tinggi.
 	Perbedaan antara mean, median, dan modus ini mengindikasikan adanya kesenjangan kinerja dalam industri SaaS. Sejumlah kecil startup dengan pendapatan sangat tinggi berkontribusi besar dalam mendorong nilai rata-rata, sementara sebagian besar startup berada pada tingkat pendapatan yang lebih rendah. Pola ini umum terjadi dalam ekosistem startup, di mana keberhasilan segelintir perusahaan besar dapat memengaruhi statistik agregat (nilai statistik yang mewakili keseluruhan startup dalam dataset) secara signifikan.
