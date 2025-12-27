@@ -66,30 +66,38 @@ Histogram mendukung temuan tersebut dengan menunjukkan sebaran pendapatan yang t
 
 ### 5.2. Uji Normalitas
 - **Hasil Uji Shapiro-Wilk:**
-  - *Nilai p-value sebesar 1,497 × 10⁻¹⁴.*
-  - *Interpretasi:* Apakah data Anda terdistribusi normal berdasarkan hasil uji? Apa implikasinya?
+  - *Nilai p-value:* sebesar 1,497 × 10⁻¹⁴
+  - *Interpretasi:* Nilai p-value yang jauh lebih kecil dari tingkat signifikansi 0,05 menunjukkan bahwa data pendapatan tahunan tidak terdistribusi normal. Hal ini berarti sebaran data tidak membentuk pola simetris seperti distribusi normal dan kemungkinan dipengaruhi oleh perbedaan pendapatan yang cukup besar antar startup, termasuk adanya beberapa nilai pendapatan yang sangat tinggi dibandingkan mayoritas data lainnya. Ketidaknormalan distribusi data ini memiliki implikasi penting terhadap metode analisis yang digunakan pada tahap selanjutnya, yaitu analisis korelasi. Dalam analisis korelasi digunakan dua metode yaitu metode Pearson dan Spearman. Karena korelasi dengan metode Pearson mensyaratkan data berdistribusi normal, maka metode tersebut tidak sesuai untuk digunakan pada data ini. Oleh karena itu, analisis korelasi dalam proyek ini menggunakan korelasi dengan metode Spearman, yang tidak bergantung pada asumsi normalitas dan lebih stabil terhadap distribusi data yang tidak simetris serta keberadaan nilai ekstrem. Pemilihan metode ini bertujuan untuk menghasilkan analisis hubungan antar variabel yang lebih akurat dan representatif sesuai dengan karakteristik data pendapatan startup SaaS.
+    
 - **Plot Q-Q:**
   - *Sematkan gambar plot dari folder /results...*
-  - *Interpretasi:* Apakah titik-titik data mengikuti garis lurus? Apa artinya?
+  - *Interpretasi:* Berdasarkan Q-Q Plot variabel Pendapatan_Tahunan_Miliar_IDR, terlihat bahwa sebagian besar titik data tidak mengikuti garis diagonal secara konsisten. Pada bagian tengah, beberapa titik masih mendekati garis, namun pada bagian awal dan terutama bagian akhir, titik-titik mulai menyimpang cukup jauh dari garis lurus/garis diagonal. Penyimpangan yang jelas di sisi kanan menunjukkan adanya nilai pendapatan yang sangat tinggi dibandingkan mayoritas data.
+Pola ini menandakan bahwa distribusi data tidak simetris dan memiliki ekor kanan yang panjang (right-skewed). Dengan kata lain, terdapat sejumlah startup dengan pendapatan jauh lebih besar yang menyebabkan bentuk distribusi menyimpang dari distribusi normal. Hasil visual ini sejalan dengan temuan pada uji Shapiro-Wilk yang menyatakan bahwa data tidak terdistribusi normal. Sehingga hal ini akan mempengaruhi analisis selanjutnya yaitu analisis korelasi yang lebih tepat menggunakan metode Spearman karena distribusi data yang tidak normal. 
+
 
 ### 5.3. Analisis Korelasi
 - **Nilai Koefisien Korelasi:**
-  - *Nilai r...*
-  - *Interpretasi:* Seberapa kuat dan apa arah hubungan antara dua variabel yang Anda uji? (misalnya, korelasi positif kuat, negatif lemah, atau tidak ada korelasi).
+  - *Nilai r:* 0,997  
+  - *Interpretasi:* Nilai koefisien korelasi sebesar 0,997 menunjukkan hubungan yang **sangat kuat dan positif** antara Nilai_Pelanggan_Juta_IDR dan Pendapatan_Tahunan_Miliar_IDR. Artinya, semakin tinggi nilai pelanggan, semakin besar pula pendapatan tahunan startup.
+    
 - **Visualisasi (Scatter Plot):**
   - *Sematkan gambar plot dari folder /results...*
-  - *Interpretasi:* Apakah pola pada scatter plot mendukung hasil koefisien korelasi?
-
+  - *Interpretasi:* Scatter plot menunjukkan pola titik yang membentuk tren naik yang jelas. Sebaran data tidak terlihat acak, dimana titik-titik pada scatter plot terlihat **berkumpul dan mengikuti pola garis linier yang menaik**. Kedekatan titik-titik dengan garis linier menunjukkan bahwa hubungan antara kedua variabel bersifat **konsisten dan stabil**, dengan tingkat penyimpangan yang relatif kecil. Hal ini memperkuat hasil koefisien korelasi yang menunjukkan hubungan positif yang sangat kuat.
+    
 ### 5.4. Analisis Regresi
 - **Model Regresi:**
   - *Persamaan regresi: Y = b0 + b1*X*
-  - *Interpretasi:* Jelaskan arti dari koefisien intercept (b0) dan slope (b1) dalam konteks data Anda.
+    Persamaan regresi: Pendapatan_Tahunan_Miliar_IDR = −0,99 + 0,33 × Nilai_Pelanggan_Juta_IDR
+  - *Interpretasi:* Koefisien slope sebesar 0,33 menunjukkan bahwa setiap kenaikan 1 juta rupiah nilai pelanggan diperkirakan akan meningkatkan pendapatan tahunan sebesar 0,33 miliar rupiah. Hal ini mengindikasikan adanya hubungan positif dan searah antara nilai pelanggan dan pendapatan, di mana peningkatan nilai pelanggan berkontribusi langsung terhadap peningkatan pendapatan perusahaan.
+Sementara itu, nilai intercept sebesar −0,99 merepresentasikan nilai pendapatan tahunan ketika nilai pelanggan bernilai nol. Dalam konteks bisnis startup, kondisi ini tidak realistis karena perusahaan tidak mungkin memperoleh pendapatan tanpa pelanggan. Oleh karena itu, intercept tidak memiliki makna praktis yang kuat, namun tetap diperlukan secara matematis untuk membentuk model regresi.
+
 - **Evaluasi Model (R-squared):**
-  - *Nilai R-squared...*
-  - *Interpretasi:* Berapa persen variasi dari variabel dependen yang dapat dijelaskan oleh model regresi Anda?
+  - *Nilai R-squared:* 0,994 (99,4%)
+  - *Interpretasi:* Nilai ini menunjukkan bahwa 99,4% variasi Pendapatan_Tahunan_Miliar_IDR dapat dijelaskan oleh Nilai_Pelanggan_Juta_IDR melalui model regresi linear. Hal ini menandakan bahwa model memiliki kemampuan penjelasan yang sangat kuat dan sangat sesuai dengan data.
+  - 
 - **Visualisasi (Garis Regresi pada Scatter Plot):**
   - *Sematkan gambar plot dari folder /results...*
-  - *Interpretasi:* Jelaskan bagaimana garis regresi merepresentasikan hubungan antara variabel.
+  - *Interpretasi:* Sebagian besar titik data berada sangat dekat dengan garis regresi, yang menunjukkan bahwa prediksi model mendekati nilai aktual. Pola ini mendukung hasil regresi dan mengindikasikan bahwa hubungan antara nilai pelanggan dan pendapatan bersifat linear dan konsisten.
 
 ---
 
